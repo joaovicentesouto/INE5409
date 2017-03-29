@@ -1,5 +1,5 @@
 A = [4 2 3; 2 -4 -1; -1 1 4];
-B = [7;1;-5];
+b = [7;1;-5];
 n = size(A,1);
 
 for k = 1:n-1
@@ -9,21 +9,22 @@ for k = 1:n-1
     for j = k:n
       A(i,j) = A(i,j) - m*A(k,j);
     end
-    B(i) = B(i) - m*B(k);
+    b(i) = b(i) - m*b(k);
   end
 end
 
 % Solucionando o sistema
-X(n) = B(n)/A(n,n);
+x(n) = b(n)/A(n,n);
 for i = n-1:-1:1
   soma = 0;
   for j = i+1:n
-    soma = soma + A(i,j)*X(j);
+    soma = soma + A(i,j)*x(j);
   end
-  X(i) = (B(i) - soma)/A(i,i);
+  x(i) = (b(i) - soma)/A(i,i);
 end
 
-% Respotas
+% Resultado das operações
 A
-B
-X
+b
+% Solução
+x
