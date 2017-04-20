@@ -31,23 +31,23 @@ A
 A1 = L*U
 
 % Solucionando o sistema
-x(n) = b(n)/U(n,n);
+y(n) = b(n)/U(n,n);
 for i = n-1:-1:1
   soma = 0;
   for j = i+1:n
-    soma = soma + U(i,j)*x(j);
+    soma = soma + U(i,j)*y(j);
   end
-  x(i) = (b(i) - soma)/U(i,i);
+  y(i) = (b(i) - soma)/U(i,i);
 end
 
 % Solucionando o sistema
-y(n) = x(n)/L(n,n);
+x(n) = y(n)/L(n,n);
 for i = n-1:-1:1
   soma = 0;
   for j = 1:i-1
-    soma = soma + L(i,j)*y(j);
+    soma = soma + L(i,j)*x(j);
   end
-  y(i) = (x(i) - soma)/L(i,i);
+  x(i) = (y(i) - soma)/L(i,i);
 end
 
-y
+x

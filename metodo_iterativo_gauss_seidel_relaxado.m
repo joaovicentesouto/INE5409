@@ -2,13 +2,18 @@ format long
 clc
 clear
 
-A = [3 -1 -1; 1 3 1; 2 -2 4];
-b = [1; 5; 4];
+%A = [3 -1 -1; 1 3 1; 2 -2 4];
+%b = [1; 5; 4];
+
+A = [3 4 3; 1 5 -1; 6 3 5];
+b = [10; 7; 15];
+
 x = [0; 0; 0];
 previous = x;
 n = size(A,1);
 erro = 1;
-count = 0;
+diminuindo = erro+1;
+cont = 0;
 
 converge = 'Converge absolutamente.';
 for i=1:n
@@ -26,7 +31,7 @@ end
 converge
 
 w = 0.858
-while erro > 1e-5
+while erro > 1e-10 && erro < diminuindo
     previous = x;
     for i=1:n
         soma = 0;
@@ -39,8 +44,13 @@ while erro > 1e-5
 
         x(i) = (1-w)*previous(i) + w*x(i);
     end
-    count = count + 1;
-    erro = abs(norm(previous - x));
+    cont = cont + 1;
+    if erro == 1
+      diminuindo = norm(previous - x)+1
+    else
+      diminuindo = erro
+    end
+    erro = norm(previous - x)
 end
 x
-count
+cont

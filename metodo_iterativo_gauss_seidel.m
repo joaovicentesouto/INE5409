@@ -2,13 +2,18 @@ format long
 clc
 clear
 
-A = [3 -1 -1; 1 3 1; 2 -2 4];
-b = [1; 5; 4];
+%A = [3 -1 -1; 1 3 1; 2 -2 4];
+%b = [1; 5; 4];
+
+%Lista 3
+A = [3 4 3; 1 5 -1; 6 3 5];
+b = [10; 7; 15];
+
 x = [0; 0; 0];
 previous = x;
 n = size(A,1);
 erro = 1;
-count = 0;
+cont = 0;
 
 converge = 'Converge absolutamente.';
 for i=1:n
@@ -25,7 +30,7 @@ for i=1:n
 end
 converge
 
-while erro > 1e-5
+while erro > 1e-16
     previous = x;
     for i=1:n
         soma = 0;
@@ -36,8 +41,8 @@ while erro > 1e-5
         end
         x(i)=(b(i) - soma)/A(i,i);
     end
-    count = count + 1;
-    erro = abs(norm(previous - x));
+    cont = count + 1;
+    erro = norm(previous - x);
 end
 x
-count
+cont
