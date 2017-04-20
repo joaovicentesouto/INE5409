@@ -2,7 +2,7 @@ A = [4 2 3; 2 -4 -1; -1 1 4];
 b = [7; 1; -5];
 n = size(A,1);
 L = [1 0 0; 1 1 0; 1 1 1];
-U = [1 1 1; 0 1 1; 0 0 1]
+U = [1 1 1; 0 1 1; 0 0 1];
 
 for k=1:n
 
@@ -25,29 +25,29 @@ for k=1:n
 
 end
 
-L
-U
-A
-A1 = L*U
+% Solucionando o sistema Ly=b
+y(1) = b(1)/L(1,1);
+for i = 2:n
+  soma = 0;
+  for j = 1:i-1
+    soma = soma + L(i,j)*y(j);
+  end
+  y(i) = (b(i) - soma)/L(i,i);
+end
 
-% Solucionando o sistema
-y(n) = b(n)/U(n,n);
+% Solucionando o sistema Ux=y
+x(n) = y(n)/U(n,n);
 for i = n-1:-1:1
   soma = 0;
   for j = i+1:n
-    soma = soma + U(i,j)*y(j);
+    soma = soma + U(i,j)*x(j);
   end
-  y(i) = (b(i) - soma)/U(i,i);
-end
-
-% Solucionando o sistema
-x(n) = y(n)/L(n,n);
-for i = n-1:-1:1
-  soma = 0;
-  for j = 1:i-1
-    soma = soma + L(i,j)*x(j);
-  end
-  x(i) = (y(i) - soma)/L(i,i);
+  x(i) = (y(i) - soma)/U(i,i);
 end
 
 x
+
+L
+U
+A
+LxU = L*U
