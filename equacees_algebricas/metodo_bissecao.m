@@ -21,16 +21,18 @@ function bissecao
 
   while abs(fxm) > erro
     k = k+1;
+    
     xm = (a+b)/2;
     fxm = funcao(xm);
     plot(xm,fxm,'r*')
+
     if fa*fxm < 0
       b = xm;
+      fb = fxm;
     else
       a = xm;
       fa = fxm;
     end
-    %xms(k) = xm;
   end
 
   xm
