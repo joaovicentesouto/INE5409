@@ -1,11 +1,12 @@
-e = [3];
-d = [2; -1];
-c = [4; -4; 4];
-b = [2; 1];
-a = [-1];
+Matriz n x n
+Logo:
+a = vetor 1 x n-2 inferior a r
+b = vetor 1 x n-1 superior a r
+c = vetor 1 x n
+d = vetor 1 x n-1 superior a r
+e = vetor 1 x n-2 inferior a r
 
-f = [7; 1; -5];
-n = size(c, 1);
+f = vetor 1 x n inferior a r
 
 for i = 1:n-1
 
@@ -13,7 +14,7 @@ for i = 1:n-1
     b(i) = b(i) - escalar * c(i);
     c(i+1) = c(i+1) - escalar * d(i);
     if i < n-1
-       d(i+1) = d(i+1) - escalar * e(i);
+        d(i+1) = d(i+1) - escalar * e(i);
     end
     f(i+1) = f(i+1) - escalar * f(i);
 
@@ -36,12 +37,3 @@ for i = n-2:-1:1
   soma = d(i)*x(i+1) + e(i)*x(i+2);
   x(i) = (f(i) - soma)/c(i);
 end
-
-a
-b
-c
-d
-e
-f
-
-x
