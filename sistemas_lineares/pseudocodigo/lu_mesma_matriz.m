@@ -34,7 +34,7 @@ for i = 2 até n
   for j = 1 até i-1
     soma = soma + A(i,j)*y(j)
   end
-  A(i) = (b(i) - soma) / A(i,i)
+  y(i) = (b(i) - soma) / A(i,i)
 end
 
 % Ux = y    diagonal de U sempre == 1
