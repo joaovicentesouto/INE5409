@@ -4,8 +4,8 @@ function bissecao
   clear
   clc
   format long
-  erro = 10^-6;
-  a = 0;
+  erro = 10^-2;
+  a = 0.5;
   b = 1;
 
   x = [a:0.1:b];
@@ -21,7 +21,7 @@ function bissecao
 
   while abs(fxm) > erro
     k = k+1;
-    
+
     xm = (a+b)/2;
     fxm = funcao(xm);
     plot(xm,fxm,'r*')
@@ -40,7 +40,11 @@ function bissecao
   fxm
 
   function y=funcao(x)
-    y=exp(x).*sin(x)-1;
+    y=x.^3-2.*exp(-1.*x);
   end
+
+  %function y=funcao(x)
+  %  y=exp(x).*sin(x)-1;
+  %end
 
 end

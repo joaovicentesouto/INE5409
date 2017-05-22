@@ -2,14 +2,14 @@ function horner
 
     clear
     clc
-    format long
+    %format long
 
 
     erro = 10^-6;
-    a = [1 0 2 -1];
+    a = [5 -4 1 0 -1 1];
     n = length(a);
 
-    x = -1+1i;
+    x = 1;
     b(n) = 1;
 
     iteracoes = 0;
@@ -27,6 +27,7 @@ function horner
         x = x - b(n)/c(n-1); % x1 = x0 - R/R1
 
         iteracoes = iteracoes + 1;
+
 
     end
 

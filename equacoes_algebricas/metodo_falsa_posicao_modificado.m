@@ -30,24 +30,24 @@ while abs(fxm) > erro
 
     plot(x, r, 'r')
     hold on
-    pause
+    %pause
 
     if fa*fxm < 0
-       b = xm;
-       fb = fxm;
+      pa = fb / (fb + fxm); % conferir se esta certo
+      fa = fa*pa;
 
-       pa = fb / (fb + fxm); % conferir se esta certo
-       fa = fa*pa;
+      b = xm;
+      fb = fxm;
 
-       cb = cb+1;
+      cb = cb+1;
     else
-       a = xm;
-       fa = fxm;
+      pb = fa / (fa + fxm);  % conferir se esta certo
+      fb = fb*pb;
 
-       pb = fa / (fa + fxm);  % conferir se esta certo
-       fb = fb*pb;
+      a = xm;
+      fa = fxm;
 
-       ca = ca+1;
+      ca = ca+1;
     end
 end
 
