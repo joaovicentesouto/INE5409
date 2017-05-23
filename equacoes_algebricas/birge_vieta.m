@@ -5,11 +5,11 @@ function horner
     %format long
 
 
-    erro = 10^-6;
-    a = [5 -4 1 0 -1 1];
+    erro = 10^-2;
+    a = [-3 2 1 -1];
     n = length(a);
 
-    x = 1;
+    x = 1+1i;
     b(n) = 1;
 
     iteracoes = 0;
