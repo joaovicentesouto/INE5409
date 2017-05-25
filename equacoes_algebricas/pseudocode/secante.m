@@ -1,32 +1,27 @@
 % Definição
-Pn(x) = Polinômio de grau n do qual queremos encontrar as raízes
-a = [an, an-1, ... , a1, a0] => Coeficientes do polinômio
-x = x - R/R1
-R = Pn(x)
-R1 = P'n(x)
-
+f(x) = função que se deseja achar a raiz
+Uso do cálculo da derivada numéricamente.
 
 % Variáveis principais
-x = 1; % Chute inicial
-n = grau+1 de Pn(x) % +1 por causa da constante
+x0 = 0; % chute inicial
+x1 = 1; % Chute inicial
 
 % Auxiliares, calcular f(x) toda hora custa muito.
-b(n) = 1; % Qualquer valor > erro
+f0 = f(x0);
+f1 = f(x1);
+xk;
 
 erro = 10^-6; % Exemplo
 count;
 
-while abs(b(n)) > erro % b(n) = R
+while abs(f1) > erro
 
-  b(1) = a(1);
-  c(1) = b(1);
-  for i = 2 até n-1
-    b(i) = b(i-1)*x + a(i);
-    c(i) = c(i-1)*x + b(i);
-  end
-  b(n) = b(n-1)*x + a(n);
+  xk = x1 - f1*(x1-x0)/(f1-f0);
+  x0 = x1;
+  x1 = xk;
 
-  x = x - b(n)/c(n-1); % x1 = x0 - R/R1
+  f0 = f(x0); % valores mais atualizados
+  f1 = f(x1); % valores mais atualizados
 
   count = count + 1;
 end

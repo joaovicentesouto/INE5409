@@ -33,4 +33,4 @@ while abs(fxm) > erro
   count = count+1;
 end
 
-xm = raiz aproximada de f(x) / f(xm) = 0.0...0...
+xm = raiz aproximada de f(x) / f(xm) = 0.00...0(erro)

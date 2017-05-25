@@ -9,16 +9,23 @@ Logo => x = x" - f(x")/f'(x")
 r(x) = f'(x0)*(x-x0) + f(x0); % Reta tangente ao ponto x
 
 % Variáveis principais
-x0 = 1 % Chute inicial o mais perto da raiz
+x = 1 % Chute inicial o mais perto da raiz
+
+% Auxiliares, calcular f(x) toda hora custa muito.
+fx = f(x);
+df = f(x1);
 xk;
 
 erro = 10^-6; % Exemplo
 count;
 
-while abs(f(x0)) > erro
+while abs(fx) > erro
 
-  xk = x0 - f(x0)/f'(x0);
-  x0 = xk;
+  xk = x - fx/df;
+  x = xk;
+
+  fx = f(x);   % valores mais atualizados
+  df = f'(x);  % valores mais atualizados
 
   count = count + 1;
 end
