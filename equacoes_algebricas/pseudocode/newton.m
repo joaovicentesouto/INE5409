@@ -1,10 +1,10 @@
 % Definição
 f(x) = função que se deseja achar a raiz
 f'(x) e f''(x) => Derivadas continuas em [a, b]
-f'(x) != 0
+f'(x) ~= 0
 
-f(x) aproximadamente f(x") + f'(x")*(x-x") = 0
-Logo => x = x" - f(x")/f'(x")
+f(x) aproximadamente f(x™) + f'(x™)*(x-x™) = 0
+Logo => x = x™ - f(x™)/f'(x™)
 
 r(x) = f'(x0)*(x-x0) + f(x0); % Reta tangente ao ponto x
 

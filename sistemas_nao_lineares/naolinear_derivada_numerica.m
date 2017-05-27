@@ -1,5 +1,7 @@
 function naolinear
 
+% derivada de forma numérica
+
 clear
 clc
 format long

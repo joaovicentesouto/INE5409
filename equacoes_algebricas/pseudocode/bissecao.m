@@ -1,6 +1,6 @@
 % Definição
 f(x) = função que se deseja achar a raiz
-intervalo = [a, b] / f(a)*f(b) < 0 % Contém, pelo menos, uma raiz.
+intervalo = [a, b] tal que f(a)*f(b) < 0 % Contém, pelo menos, uma raiz.
 
 % Variáveis principais
 a = a;
@@ -33,4 +33,4 @@ while abs(fxm) > erro
   count = count+1;
 end
 
-xm = raiz aproximada de f(x) / f(xm) = 0.00...0(erro)
+xm = raiz aproximada de f(x) tal que f(xm) = 0.00...0(erro)

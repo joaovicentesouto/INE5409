@@ -1,6 +1,6 @@
 % Definição
 f(x) = função que se deseja achar a raiz
-intervalo = [a, b] / f(a)*f(b) < 0 % Contém, pelo menos, uma raiz.
+intervalo = [a, b] tal que f(a)*f(b) < 0 % Contém, pelo menos, uma raiz.
 reta r(x) = f(a) + ((fb - fa)/(b-a))*(x-a)
 
 % Variáveis principais
