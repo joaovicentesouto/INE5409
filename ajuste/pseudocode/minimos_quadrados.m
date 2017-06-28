@@ -13,7 +13,7 @@ for i = 1 até m+1
     A(j,i) = A(i,j)
 
     b(i) = 0
-    for k - 1 até n
+    for k = 1 até n
       b(i) = b(i) + (y(k) * x(k)^(i-1))
     end
 end

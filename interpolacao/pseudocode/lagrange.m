@@ -18,7 +18,7 @@ for k = 1 até n_intervalo
     for j = 1 até n
       if i ~= j
         cima = cima * (x_intervalo(k) - x(j))
-        baixo = baixo * (x_intervalo(k) - x(j))
+        baixo = baixo * (x(i) - x(j))
       end
     end
 
