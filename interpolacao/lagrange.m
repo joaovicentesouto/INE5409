@@ -37,7 +37,7 @@ for k = 1:n1
         baixo = 1;
        for j = 1:n
            if i ~= j
-               cima = cima * (x1(k)-x(j));
+               cima = cima * (x1(k) - x(j));
                baixo = baixo * (x(i) - x(j));
            end
        end

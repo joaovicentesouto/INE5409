@@ -16,8 +16,8 @@ plot(x,y, 'o');
 hold on
 pause
 
-x_reta = [xmin:1:xmax];
-n_reta = length(x_reta);
+x_intervalo = [xmin:1:xmax];
+n_intervalo = length(x_intervalo);
 
 % Questão 1:
 % Encontrado os coeficientes na mão, resultado com arrendamento:
@@ -32,27 +32,27 @@ end
 % Solução do sistema
 coef_sistema = A\y';
 
-for i = 1:n_reta
+for i = 1:n_intervalo
     y_sistema(i) = 0;
     for j = 1:n
-        y_sistema(i) = y_sistema(i) + coef_sistema(j) * x_reta(i)^(j-1);
+        y_sistema(i) = y_sistema(i) + coef_sistema(j) * x_intervalo(i)^(j-1);
     end
 end
 
-plot(x_reta, y_sistema, 'b');
+plot(x_intervalo, y_sistema, 'b');
 hold on
 pause
 % FIM 1
 
 % Questão 2: Lagrange
-for k = 1:n_reta
+for k = 1:n_intervalo
     y_lagrange(k) = 0;
     for i = 1:n
         cima = 1;
         baixo = 1;
        for j = 1:n
            if i ~= j
-               cima = cima * (x_reta(k)-x(j));
+               cima = cima * (x_intervalo(k)-x(j));
                baixo = baixo * (x(i) - x(j));
            end
        end
@@ -61,7 +61,7 @@ for k = 1:n_reta
     end
 end
 
-plot(x_reta, y_lagrange, 'c--');
+plot(x_intervalo, y_lagrange, 'c--');
 hold on
 pause
 % Fim 2
@@ -74,25 +74,25 @@ for j = 2:n
    end
 end
 
-for k = 1:n_reta
+for k = 1:n_intervalo
     y_newton(k) = A_newton(1,1);
     for i = 2:n
        mult = A_newton(i,i);
        for j = 1:i-1
-         mult = mult * (x_reta(k) - x(j));
+         mult = mult * (x_intervalo(k) - x(j));
        end
        y_newton(k) = y_newton(k) + mult;
     end
 end
 
-plot(x_reta, y_newton, 'r:');
+plot(x_intervalo, y_newton, 'r:');
 hold on
 pause
 % Fim 3
 
 % Questão 4: Spline do matlab
-spl = spline(x, y, x_reta);
-plot(x_reta, spl, '-.')
+spl = spline(x, y, x_intervalo);
+plot(x_intervalo, spl, '-.')
 hold on
 pause
 % Fim 4
